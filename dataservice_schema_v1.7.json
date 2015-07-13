@@ -1,0 +1,1395 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "https://td-sys.moven.com/partnerapi/v1/dataservicerq",
+	"type": "object",
+	"properties": {
+		"RqHdr": {
+			"id": "RqHdr",
+			"type": "object",
+			"properties": {
+				"RqUID": {
+					"id": "RqUID",
+					"type": "string",
+					"description": "Partner request id"
+				},
+				"RqSel": {
+					"id": "Selector",
+					"type": "array",
+					"properties": {
+						"AcctKeys": {
+							"id": "AcctKeys",
+							"type": "object",
+							"properties": {
+								"AcctId": {
+									"id": "AcctId",
+									"type": "string"
+								},
+								"AcctTypeValue": {
+									"id": "AcctTypeValue",
+									"type": "string"
+								},
+								"CurCode": {
+									"id": "CurCode",
+									"type": "object",
+									"properties": {
+										"CurCodeType": {
+											"id": "CurCodeType",
+											"type": "string"
+										},
+										"CurCodeValue": {
+											"id": "CurCodeValue",
+											"type": "string"
+										}
+									}
+								}
+							}
+						},
+						"PartyAcctRelKeys": {
+							"id": "PartyAcctRelKeys",
+							"type": "object",
+							"properties": {
+								"AcctKeys": {
+									"id": "AcctKeys",
+									"type": "object",
+									"properties": {
+										"AcctId": {
+											"id": "AcctId",
+											"type": "string"
+										},
+										"AcctTypeValue": {
+											"id": "AcctTypeValue",
+											"type": "string"
+										},
+										"CurCode": {
+											"id": "CurCode",
+											"type": "object",
+											"properties": {
+												"CurCodeType": {
+													"id": "CurCodeType",
+													"type": "string"
+												},
+												"CurCodeValue": {
+													"id": "CurCodeValue",
+													"type": "string"
+												}
+											}
+										}
+									}
+								},
+								"PartyAcctRelType": {
+									"id": "PartyAcctRelType",
+									"type": "string"
+								}
+							}
+						},
+						"AcctTrnKeys": {
+							"id": "AcctTrnKeys",
+							"type": "object",
+							"properties": {
+								"AcctTrnId": {
+									"id": "AcctTrnId",
+									"type": "string"
+								}
+							}
+						},
+						"DtRange": {
+							"id": "DtRange",
+							"type": "object",
+							"properties": {
+								"StartDt": {
+									"id": "StartDt",
+									"type": "string"
+								},
+								"EndDt": {
+									"id": "EndDt",
+									"type": "string"
+								}
+							}
+						},
+						"TrnType": {
+							"id": "TrnType",
+							"type": "object",
+							"properties": {
+								"TrnTypeValue": {
+									"id": "TrnTypeValue",
+									"type": "string"
+								}
+							}
+						},
+						"TrnSubType": {
+							"id": "TrnSubType",
+							"type": "object",
+							"properties": {
+								"TrnSubTypeValue": {
+									"id": "TrnSubTypeValue",
+									"type": "string"
+								}
+							}
+						}
+					},
+					"minItems": "0"
+				}
+			},
+			"required": [
+				"RqUID"
+			]
+		},
+		"RqEnv": {
+			"id": "RqEnv",
+			"type": "object",
+			"properties": {
+				"CreatedDt": {
+					"id": "CreatedDt",
+					"type": "string",
+					"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+				},
+				"ClientCreateDt": {
+					"id": "ClientCreateDt",
+					"type": "string",
+					"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC. This field is the datetime that DDR processes the record(s) included in this payload. Both DDR and Moven uses this datetime for reconciliation, this datetime must fall within the range of the reconcilation start and end cutoff date time to be included in the reconciliation file."
+				},
+				"ClientBusinessDt": {
+					"id": "ClientBusinessDt",
+					"type": "string",
+					"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+				},
+				"LastUpdate": {
+					"id": "LastUpdateDt",
+					"type": "string",
+					"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+				}
+			},
+			"required": [
+				"CreatedDt"
+			]
+		},
+		"RqMsg": {
+			"id": "RqMsg",
+			"type": "array",
+			"properties": {
+				"RqMsgUID": {
+					"id": "RqMsgUID",
+					"type": "string",
+					"description": "Partner generated GUID"
+				},
+				"RqType": {
+					"id": "RqType",
+					"type": "string",
+					"description": "Type for Operations: such as PartyAdd, AcctAd, AcctTrnAdd, PartyDel"
+				},
+				"RqSubType": {
+					"id": "RqSubType",
+					"type": "string",
+					"description": "Subtype for Operation"
+				},
+				"RqCategory": {
+					"id": "RqCategory",
+					"type": "string",
+					"description": "Information: Financial for AcctTrn vs Non Financial for Party/Acct"
+				},
+				"PartyRec": {
+					"id": "PartyRec",
+					"type": "array",
+					"properties": {
+						"PartyId": {
+							"id": "PartyId",
+							"type": "string"
+						},
+						"AcctCnt": {
+							"id": "AcctCnt",
+							"type": "integer",
+							"description": "This is the field to indicate the total count of the accounts to be registered when registering a new customer. Each payload would only contain the customer and one account to be registered, this field provides the total number of accounts to be registered for this customer. "
+						},
+						"PersonPartyInfo": {
+							"id": "PersonPartyInfo",
+							"type": "object",
+							"properties": {
+								"PartyPref.Language": {
+									"id": "Language",
+									"type": "string"
+								},
+								"EstablishedDt": {
+									"id": "EstablishedDt",
+									"type": "string"
+								},
+								"PersonData": {
+									"id": "PersonData",
+									"type": "object",
+									"properties": {
+										"PersonName.FamilyName": {
+											"id": "FamilyName",
+											"type": "string"
+										},
+										"PersonName.MiddleName": {
+											"id": "MiddleName",
+											"type": "string"
+										},
+										"PersonName.GivenName": {
+											"id": "GivenName",
+											"type": "string"
+										}
+									}
+								},
+								"BirthDt": {
+									"id": "BirthDt",
+									"type": "string"
+								},
+								"EducationLevel": {
+									"id": "EducationLevel",
+									"type": "string"
+								},
+								"Gender": {
+									"id": "Gender",
+									"type": "string"
+								},
+								"HeadofHouseHoldInd": {
+									"id": "HeadofHouseHoldInd",
+									"type": "boolean"
+								},
+								"HomeOwnership": {
+									"id": "HomeOwnership",
+									"type": "boolean"
+								}
+							}
+						},
+						"PartyEnv": {
+							"id": "PartyEnv",
+							"type": "object",
+							"properties": {
+								"CreatedDt": {
+									"id": "CreatedDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"ClientCreateDt": {
+									"id": "ClientCreateDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"ClientBusinessDt": {
+									"id": "ClientBusinessDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"LastUpdate": {
+									"id": "LastUpdateDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								}
+							}
+						},
+						"PartyStatus": {
+							"id": "PartyStatus",
+							"type": "object",
+							"properties": {
+								"PartyStatusCode": {
+									"id": "PartyStatusCode",
+									"type": "string"
+								},
+								"StatusDesc": {
+									"id": "StatusDesc",
+									"type": "string"
+								},
+								"EffDt": {
+									"id": "EffDt",
+									"type": "string"
+								},
+								"StatusModBy": {
+									"id": "StatusModBy",
+									"type": "string"
+								}
+							}
+						}
+					},
+					"description": "For Party/Acct Add, Items=1:m, For AcctTrn, Items=0:m",
+					"required": [
+						"PartyId"
+					]
+				},
+				"AcctRec": {
+					"id": "AcctRec",
+					"type": "array",
+					"properties": {
+						"AcctId": {
+							"id": "AcctId",
+							"type": "string",
+							"description": "Partner Account Proxy ID"
+						},
+						"ProductIdent": {
+							"id": "ProductIdent",
+							"type": "string",
+							"description": "Product Type: PDA, SAV (for Debit), VSA (for Credit Card)"
+						},
+						"ProductSubIdent": {
+							"id": "ProductSubIdent",
+							"type": "string",
+							"description": "Product Code / Name"
+						},
+						"UsageType": {
+							"id": "UsageType",
+							"type": "string",
+							"description": "Partner's Account Usage Type"
+						},
+						"AcctInfo": {
+							"id": "AcctInfo",
+							"type": "object",
+							"properties": {
+								"CurCode.CurCodeType": {
+									"id": "CurCodeType",
+									"type": "string"
+								},
+								"CurCode.CurCodeValue": {
+									"id": "CurCodeValue",
+									"type": "string"
+								},
+								"Desc": {
+									"id": "Desc",
+									"type": "string"
+								},
+								"AcctIdent": {
+									"id": "AcctIdent",
+									"type": "array",
+									"AcctIdentType": {
+										"id": "AcctIdentType",
+										"type": "string",
+										"description": "Type of Partner's Account Identification such as Masked Account Number"
+									},
+									"AcctIdentValue": {
+										"id": "AcctIdentValue",
+										"type": "string",
+										"description": "Masked Account Number such as last 4 digits: 3456"
+									},
+									"properties": ""
+								},
+								"FIData": {
+									"id": "FIData",
+									"type": "object",
+									"properties": {
+										"Name": {
+											"id": "Name",
+											"type": "string"
+										},
+										"BranchIdent": {
+											"id": "BranchIdent",
+											"type": "string"
+										},
+										"BranchName": {
+											"id": "BranchName",
+											"type": "string"
+										}
+									}
+								},
+								"AcctType": {
+									"id": "AcctType",
+									"type": "object",
+									"properties": {
+										"AcctTypeValue": {
+											"id": "AcctTypeValue",
+											"type": "string"
+										},
+										"AcctTypeSource": {
+											"id": "AcctTypeSource",
+											"type": "string"
+										}
+									}
+								},
+								"AcctTitle": {
+									"id": "AcctTitle",
+									"type": "string"
+								},
+								"Memo": {
+									"id": "Memo",
+									"type": "string"
+								},
+								"OpenDt": {
+									"id": "OpenDt",
+									"type": "string"
+								},
+								"ClosedDt": {
+									"id": "ClosedDt",
+									"type": "string",
+									"description": "Standard Date/Time Format but Date is enough"
+								},
+								"PostAddr": {
+									"id": "PostAddr",
+									"type": "object",
+									"properties": {
+										"Addr1": {
+											"id": "Addr1",
+											"type": "string"
+										},
+										"Addr2": {
+											"id": "Addr2",
+											"type": "string"
+										},
+										"City": {
+											"id": "City",
+											"type": "string"
+										},
+										"StateProv": {
+											"id": "StateProv",
+											"type": "string"
+										},
+										"PostalCode": {
+											"id": "PostalCode",
+											"type": "string"
+										},
+										"CountryCode": {
+											"id": "CountryCode",
+											"type": "object",
+											"properties": {
+												"CountryCodeSource": {
+													"id": "CountryCodeSource",
+													"type": "string"
+												},
+												"CountryCodeValue": {
+													"id": "CountryCodeValue",
+													"type": "string"
+												}
+											}
+										}
+									},
+									"description": "Billing Address"
+								},
+								"AcctBal": {
+									"id": "AcctBal",
+									"type": "array",
+									"properties": {
+										"BalType": {
+											"id": "CurAmt",
+											"type": "object",
+											"properties": {
+												"BalTypeSource": {
+													"id": "Amt",
+													"type": "string"
+												},
+												"BalTypeValues": {
+													"id": "Amt",
+													"type": "string",
+													"description": "Valid values include: Avail, AvailCredit, AvgLedger, ClosingLedger, ClosingOutstanding, CreditHeld, CreditLimit, Current, DebitHeld, Escrow, Ledger, MinLedger, OpeningLedger, OpeningOutstanding, Outstanding, PayoffAmt, Principal, RwdBonus, RwdReg, TotalHeld"
+												}
+											},
+											"required": [
+												"BalTypeValues"
+											]
+										},
+										"CurAmt": {
+											"id": "CurAmt",
+											"type": "object",
+											"properties": {
+												"Amt": {
+													"id": "Amt",
+													"type": "number"
+												},
+												"CurCode.CurCodeType": {
+													"id": "CurCodeType",
+													"type": "string"
+												},
+												"CurCode.CurCodeValue": {
+													"id": "CurCodeValue",
+													"type": "string"
+												}
+											},
+											"required": [
+												""
+											]
+										},
+										"ExpDt": {
+											"id": "Amt",
+											"type": "string",
+											"description": "Expiration Date - this can be used to record each statement end date"
+										},
+										"Desc": {
+											"id": "Amt",
+											"type": "string"
+										}
+									},
+									"required": [
+										"CurAmt"
+									]
+								},
+								"GraceEndDt": {
+									"id": "GraceEndDt",
+									"type": "string",
+									"description": "Count Down Date for Account Closure"
+								},
+								"Segmentation.SegmentType": {
+									"id": "SegmentType",
+									"type": "string"
+								},
+								"SegmentationSegmentValue": {
+									"id": "SegmentValue",
+									"type": "string"
+								},
+								"Ownership": {
+									"id": "Ownership",
+									"type": "string",
+									"description": "For Jointed Account Indication"
+								}
+							},
+							"required": [
+								"CurCode.CurCodeValue", "AcctType"
+							]
+						},
+						"AcctEnv": {
+							"id": "AcctEnv",
+							"type": "object",
+							"properties": {
+								"CreatedDt": {
+									"id": "CreatedDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"ClientCreateDt": {
+									"id": "ClientCreateDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"ClientBusinessDt": {
+									"id": "ClientBusinessDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"LastUpdate": {
+									"id": "LastUpdateDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								}
+							}
+						},
+						"AcctStatus": {
+							"id": "AcctStatus",
+							"type": "object",
+							"properties": {
+								"AcctStatusCode": {
+									"id": "AcctStatusCode",
+									"type": "string"
+								},
+								"StatusDesc": {
+									"id": "StatusDesc",
+									"type": "string"
+								},
+								"EffDt": {
+									"id": "EffDt",
+									"type": "string"
+								},
+								"StatusModBy": {
+									"id": "StatusModBy",
+									"type": "string"
+								}
+							},
+							"required": [
+								"AcctStatusCode"
+							]
+						}
+					},
+					"minItems": "0",
+					"description": "If Acct Add, Min Item=1, If Trn Add, Min Item=0",
+					"required": [
+						"AcctId", "ProductIdent", "AcctInfo", "AcctStatus"
+					]
+				},
+				"PartyAcctRelRec": {
+					"id": "PartyAcctRelRec",
+					"type": "object",
+					"properties": {
+						"PartyAcctRelId": {
+							"id": "PartyAcctRelId",
+							"type": "string",
+							"description": "Destination Internal Generated ID"
+						},
+						"PartyAcctRelInfo": {
+							"id": "PartyAcctRelInfo",
+							"type": "object",
+							"properties": {
+								"PartyId": {
+									"id": "PartyRef",
+									"type": "string"
+								},
+								"AcctId": {
+									"id": "AcctRef",
+									"type": "string"
+								},
+								"PartyAcctRelData.PartyAcctRelType": {
+									"id": "PartyAcctRelType",
+									"type": "string",
+									"description": "Such as Joint - Primary, Joint - Auth"
+								},
+								"PartyAcctRelData.PartyAcctRelDesc": {
+									"id": "PartyAcctRelDesc",
+									"type": "string"
+								},
+								"OwnerPercentage": {
+									"id": "OwnerPercentage",
+									"type": "string"
+								},
+								"OwnerInd": {
+									"id": "OwnerInd",
+									"type": "string"
+								},
+								"Nickname": {
+									"id": "Nickname",
+									"type": "string",
+									"description": "Nickname of the Account for the relationship to the party"
+								}
+							},
+							"required": [
+								"PartyId", "AcctId", "PartyAcctRelData.PartyAcctRelType"
+							]
+						},
+						"PartyAcctRelEnv": {
+							"id": "PartyAcctRelEnv",
+							"type": "object",
+							"properties": {
+								"CreatedDt": {
+									"id": "CreatedDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"ClientCreateDt": {
+									"id": "ClientCreateDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"ClientBusinessDt": {
+									"id": "ClientBusinessDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"LastUpdate": {
+									"id": "LastUpdateDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								}
+							}
+						},
+						"PartyAcctRelStatus": {
+							"id": "PartyAcctRelStatus",
+							"type": "object",
+							"properties": {
+								"PartyAcctRelStatusCode": {
+									"id": "PartyAcctRelStatusCode",
+									"type": "string"
+								},
+								"StatusDesc": {
+									"id": "StatusDesc",
+									"type": "string"
+								},
+								"EffDt": {
+									"id": "EffDt",
+									"type": "string"
+								},
+								"StatusModBy": {
+									"id": "StatusModBy",
+									"type": "string"
+								}
+							}
+						}
+					},
+					"description": "For Party/Acct Add, items=1:m, For AcctTrn, items=0:m",
+					"required": [
+						"PartyAcctRelId", "PartyAcctRelInfo"
+					]
+				},
+				"AcctTrnRec": {
+					"id": "AcctTrnRec",
+					"type": "object",
+					"properties": {
+						"AcctTrnId": {
+							"id": "AcctTrnId",
+							"type": "string"
+						},
+						"AcctTrnInfo": {
+							"id": "AcctTrnInfo",
+							"type": "object",
+							"properties": {
+								"AcctId": {
+									"id": "AcctId",
+									"type": "string"
+								},
+								"TrnType": {
+									"id": "TrnType",
+									"type": "object",
+									"properties": {
+										"TrnTypeValue": {
+											"id": "TrnTypeValue",
+											"type": "string",
+											"description": "For Debit, if POS, trnSubType is MCC. If not POS, this is transaction category and trnSubType is Transaction Sub Category. For Credit Card, this can be optional and trnSubType is TSYS Transaction Code. IFX: Adjustment, Advance, Credit, Debit, Deposit, Dispurse, Dividend, Fee, Interest, Payment, Purchase, Redeem, Return, Sell, Tax, Transfer, Withdrawal"
+										},
+										"TrnTypeSource": {
+											"id": "TrnTypeSource",
+											"type": "string"
+										}
+									}
+								},
+								"TrnSubType": {
+									"id": "TrnSubType",
+									"type": "string",
+									"description": "For Credit Card: TSYS Transaction Code; For PDA, this is the MCC if trnType is POS. If not POS, it is the Transaction SubCategory."
+								},
+								"TrnSrc": {
+									"id": "TrnSrc",
+									"type": "string",
+									"description": "IFX: Valid values include: ACH, All, ATM, HomeBank, POS, Teller, VRU - Default Value: All"
+								},
+								"RelatedAcctTrnId": {
+									"id": "RelatedAcctTrnId",
+									"type": "string",
+									"description": "Related Auth or Pending AcctTrnId"
+								},
+								"UsageType": {
+									"id": "UsageType",
+									"type": "string",
+									"description": "Use for pre-auth indicator if the transaction is pre-auth"
+								},
+								"PostedDt": {
+									"id": "PostedDt",
+									"type": "string",
+									"description": "Format: yyyy-mm-dd hh:ss - if hh:ss not available, just ignore"
+								},
+								"OrigDt": {
+									"id": "OrigDt",
+									"type": "string",
+									"description": "Format: 2013-09-21T15:03:21.123Z offset of UTC. If a withdraw is done on ATM on Sat, then processed on Monday, there OrigDt is the date that the amount is taken out by the consumer. When it is the Post transaction, this is the date the transaction is auth."
+								},
+								"EffDt": {
+									"id": "EffDt",
+									"type": "string",
+									"description": "Format: 2013-09-21Z offset of UTC If a withdraw is done on ATM on Sat, then processed on Monday, there effDt is the date that the amount is processed in the system, i.e. Monday."
+								},
+								"Memo": {
+									"id": "Memo",
+									"type": "string",
+									"description": "Transaction Description"
+								},
+								"Name": {
+									"id": "Name",
+									"type": "string"
+								},
+								"ChkNum": {
+									"id": "ChkNum",
+									"type": "integer"
+								},
+								"AvailDt": {
+									"id": "AvailDt",
+									"type": "string"
+								},
+								"CompositeCurAmt": {
+									"id": "CompositeCurAmt",
+									"type": "object",
+									"properties": {
+										"Rate": {
+											"id": "Rate",
+											"type": "number",
+											"description": "Rate used to apply fee such as 2% fee applied for FX"
+										},
+										"CurAmt": {
+											"id": "CurAmt",
+											"type": "Array",
+											"properties": {
+												"CurCode.CurCodeType": {
+													"id": "CurCodeType",
+													"type": "string"
+												},
+												"CurCode.CurCodeValue": {
+													"id": "CurCodeValue",
+													"type": "string"
+												},
+												"AmtType": {
+													"id": "AmtType",
+													"type": "string",
+													"description": "Indicate if the Amt is Credit or Debit. This is Partner custom data element"
+												},
+												"Amt": {
+													"id": "Amt",
+													"type": "number"
+												}
+											},
+											"description": "The Trn amount in the currency for the account. For DDA, it is the balance after the transaction. For Payment Instrument, it is credit remaining.",
+											"required": [
+												"Amt", "AmtType"
+											]
+										},
+										"ExchangeRate": {
+											"id": "ExchangeRate",
+											"type": "Array",
+											"properties": {
+												"BaseCurCode.CurCodeType": [
+													{
+														"id": "CurCodeType",
+														"type": "string"
+													}, {
+														"id": "CurCodeType",
+														"type": "string"
+													}
+												],
+												"ContraCurCode.CurCodeValue": [
+													{
+														"id": "CurCodeValue",
+														"type": "string"
+													}, {
+														"id": "CurCodeValue",
+														"type": "string"
+													}
+												],
+												"ExchRate": {
+													"id": "ExchRate",
+													"type": "number"
+												}
+											},
+											"description": "Exchange Rate applied to the transaction. Base is the original curCode that the transaction is in and where Contra is the converted to the account curCode.",
+											"required": [
+												"ExchRate"
+											]
+										}
+									},
+									"description": "Original FX Transaction Amount and converted exchange rate, plus fee if fee is applied.",
+									"required": [
+										"CurAmt", "ExchangeRate"
+									]
+								},
+								"CurAmt": {
+									"id": "TotalCurAmt",
+									"type": "object",
+									"properties": {
+										"CurCode.CurCodeType": {
+											"id": "CurCodeType",
+											"type": "string"
+										},
+										"CurCode.CurCodeValue": {
+											"id": "CurCodeValue",
+											"type": "string"
+										},
+										"AmtType": {
+											"id": "AmtType",
+											"type": "string",
+											"description": "Indicate if the Amt is Credit or Debit. This is Partner custom data element"
+										},
+										"Amt": {
+											"id": "Amt",
+											"type": "number"
+										}
+									},
+									"description": "For DDA, it is the balance after the transaction. For Payment Instrument, it is credit remaining.",
+									"required": [
+										"Amt", "AmtType"
+									]
+								},
+								"StmtRunningBal": {
+									"id": "StmtRunningBal",
+									"type": "object",
+									"properties": {
+										"CurCode.CurCodeType": {
+											"id": "CurCodeType",
+											"type": "string"
+										},
+										"CurCode.CurCodeValue": {
+											"id": "CurCodeValue",
+											"type": "string"
+										},
+										"Amt": {
+											"id": "Amt",
+											"type": "number"
+										}
+									},
+									"description": "For DDA, it is the balance after the transaction. Not provided for CC yet",
+									"required": [
+										"Amt"
+									]
+								},
+								"AvailableBal": {
+									"id": "AvailableRunningBal",
+									"type": "object",
+									"description": "For Savings/Chequing, This includes the overdraft. If it is less than 0, it will always be 0",
+									"properties": {
+										"CurCode.CurCodeType": {
+											"id": "CurCodeType",
+											"type": "string"
+										},
+										"CurCode.CurCodeValue": {
+											"id": "CurCodeValue",
+											"type": "string"
+										},
+										"Amt": {
+											"id": "Amt",
+											"type": "number"
+										}
+									},
+									"required": [
+										"Amt"
+									]
+								},
+								"NetworkTrnData": {
+									"id": "NetworkTrnData",
+									"type": "object",
+									"properties": {
+										"NetworkOwner": {
+											"id": "NetworkOwner",
+											"type": "string"
+										},
+										"OriginatorName": {
+											"id": "OriginatorName",
+											"type": "string"
+										},
+										"OriginatorType": {
+											"id": "OriginatorType",
+											"type": "string"
+										},
+										"TerminalIdent": {
+											"id": "TerminalIdent",
+											"type": "string"
+										},
+										"TerminalType": {
+											"id": "TerminalType",
+											"type": "string"
+										},
+										"PostAddr": {
+											"id": "PostAddr",
+											"type": "object",
+											"properties": {
+												"Addr1": {
+													"id": "Addr1",
+													"type": "string"
+												},
+												"Addr2": {
+													"id": "Addr2",
+													"type": "string"
+												},
+												"City": {
+													"id": "City",
+													"type": "string"
+												},
+												"StateProv": {
+													"id": "StateProv",
+													"type": "string"
+												},
+												"PostalCode": {
+													"id": "PostalCode",
+													"type": "string"
+												},
+												"CountryCode": {
+													"id": "CountryCode",
+													"type": "object",
+													"properties": {
+														"CountryCodeSource": {
+															"id": "CountryCodeSource",
+															"type": "string"
+														},
+														"CountryCodeValue": {
+															"id": "CountryCodeValue",
+															"type": "string"
+														}
+													}
+												}
+											}
+										},
+										"Desc": {
+											"id": "Desc",
+											"type": "string"
+										},
+										"Name": {
+											"id": "Name",
+											"type": "string"
+										},
+										"FIIdentType": {
+											"id": "FIIdentType",
+											"type": "string"
+										},
+										"FIIdent": {
+											"id": "FIIdent",
+											"type": "string"
+										},
+										"MerchNum": {
+											"id": "MerchNum",
+											"type": "string"
+										},
+										"MCC": {
+											"id": "MCC",
+											"type": "integer",
+											"description": "MCC or Zero if Non POS Transaction"
+										}
+									},
+									"required": [
+										"MCC", "Name"
+									]
+								}
+							},
+							"required": [
+								"AcctId", "OrigDt", "TotalCurAmt"
+							]
+						},
+						"AcctTrnEnv": {
+							"id": "AcctTrnEnv",
+							"type": "object",
+							"properties": {
+								"CreatedDt": {
+									"id": "CreatedDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"ClientCreateDt": {
+									"id": "ClientCreateDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"ClientBusinessDt": {
+									"id": "ClientBusinessDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"LastUpdate": {
+									"id": "LastUpdateDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								}
+							}
+						},
+						"AcctTrnStatus": {
+							"id": "AcctTrnStatus",
+							"type": "object",
+							"properties": {
+								"AcctTrnStatusCode": {
+									"id": "AcctTrnStatusCode",
+									"type": "string",
+									"description": "AcctTrn Usage Type: Auth vs Posted"
+								},
+								"StatusDesc": {
+									"id": "StatusDesc",
+									"type": "string"
+								},
+								"EffDt": {
+									"id": "EffDt",
+									"type": "string"
+								},
+								"StatusModBy": {
+									"id": "StatusModBy",
+									"type": "string"
+								}
+							}
+						}
+					},
+					"minItems": "0",
+					"description": "If RqType for AcctTran Add, Item=1:M, If RqType for Party/Acct Add, Item=0:M",
+					"required": [
+						"AcctTrnId", "AcctTrnInfo"
+					]
+				},
+				"PInstrumentRec": {
+					"id": "PInstrumentRec",
+					"type": "array",
+					"properties": {
+						"PInstrumentId": {
+							"id": "PInstrumentId",
+							"type": "string",
+							"description": "PInstrument Proxy ID"
+						},
+						"PInstrumentInfo": {
+							"id": "PInstrumentInfo",
+							"type": "object",
+							"properties": {
+								"PInstrumentNum": {
+									"id": "PInstrumentNum",
+									"type": "string"
+								},
+								"PInstrumentEmbossNum": {
+									"id": "PInstrumentEmbossNum",
+									"type": "string"
+								},
+								"PInstrumentType": {
+									"id": "PInstrumentType",
+									"type": "string",
+									"description": "Physical Card vs Mobile Pay (Virtual Card)"
+								},
+								"PInstrumentSubType": {
+									"id": "PInstrumentSubType",
+									"type": "string",
+									"description": "Visa, MasterCard"
+								},
+								"Brand": {
+									"id": "Brand",
+									"type": "string"
+								},
+								"PInstrumentTechnology": {
+									"id": "PInstrumentTechnology",
+									"type": "string"
+								},
+								"AutoReplacement": {
+									"id": "AutoReplacement",
+									"type": "string"
+								},
+								"ReplacementDt": {
+									"id": "ReplacementDt",
+									"type": "string",
+									"description": "Standard Date/Time Format but Date is enough"
+								},
+								"IssueDt": {
+									"id": "IssueDt",
+									"type": "string",
+									"description": "Count Down Date for Account Closure"
+								}
+							},
+							"required": [
+								"CurCode.CurCodeValue", "AcctType"
+							]
+						},
+						"PInstrumentEnv": {
+							"id": "AcctEnv",
+							"type": "object",
+							"properties": {
+								"CreatedDt": {
+									"id": "CreatedDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"ClientCreateDt": {
+									"id": "ClientCreateDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"ClientBusinessDt": {
+									"id": "ClientBusinessDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"LastUpdate": {
+									"id": "LastUpdateDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								}
+							}
+						},
+						"PInstrumentStatus": {
+							"id": "PInstrumentStatus",
+							"type": "object",
+							"properties": {
+								"PInstrumentStatusCode": {
+									"id": "PInstrumentStatusCode",
+									"type": "string",
+									"description": "Original vs Active. Original is the Inactive Card that is replaced by  the Active Card."
+								},
+								"StatusDesc": {
+									"id": "StatusDesc",
+									"type": "string"
+								},
+								"EffDt": {
+									"id": "EffDt",
+									"type": "string"
+								},
+								"StatusModBy": {
+									"id": "StatusModBy",
+									"type": "string"
+								}
+							},
+							"required": [
+								"PInstrumentStatusCode"
+							]
+						}
+					},
+					"minItems": "0",
+					"description": "",
+					"required": [
+						"PInstrumentId", "PInstrumentInfo", "PInstrumentStatus"
+					]
+				},
+				"PartyPInstrumentRelRec": {
+					"id": "PartyPInstrumentRelRec",
+					"type": "array",
+					"properties": {
+						"PartyPInstrumentRelId": {
+							"id": "PartyPInstrumentRelId",
+							"type": "string",
+							"description": "Destination Internal Generated ID"
+						},
+						"PartyPInstrumentRelInfo": {
+							"id": "PartyPInstrumentRelInfo",
+							"type": "object",
+							"properties": {
+								"PartyId": {
+									"id": "PartyId",
+									"type": "string"
+								},
+								"PInstrumentId": {
+									"id": "PInstrumentId",
+									"type": "string"
+								},
+								"PartyPInstrumentRelType": {
+									"id": "PartyPInstrumentRelType",
+									"type": "string",
+									"description": "Such as Primary,  Auth"
+								},
+								"Nickname": {
+									"id": "Nickname",
+									"type": "string",
+									"description": "Nickname of the PInstrument for the relationship to the party"
+								},
+								"RelEstablishedDt": {
+									"id": "RelEstablishedDt",
+									"type": "string",
+									"description": ""
+								}
+							},
+							"required": [
+								"PartyId", "AcctId"
+							]
+						},
+						"PartyPInstrumentRelEnv": {
+							"id": "PartyPInstrumentRelEnv",
+							"type": "object",
+							"properties": {
+								"CreatedDt": {
+									"id": "CreatedDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"ClientCreateDt": {
+									"id": "ClientCreateDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"ClientBusinessDt": {
+									"id": "ClientBusinessDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"LastUpdate": {
+									"id": "LastUpdateDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								}
+							}
+						},
+						"PartyPInstrumentRelStatus": {
+							"id": "PartyPInstrumentRelStatus",
+							"type": "object",
+							"properties": {
+								"PartyPInstrumentRelStatusCode": {
+									"id": "PartyPInstrumentRelStatusCode",
+									"type": "string"
+								},
+								"StatusDesc": {
+									"id": "StatusDesc",
+									"type": "string"
+								},
+								"EffDt": {
+									"id": "EffDt",
+									"type": "string"
+								},
+								"StatusModBy": {
+									"id": "StatusModBy",
+									"type": "string"
+								}
+							}
+						}
+					},
+					"description": "For PartyPInstrumentRel Add, items=1:m",
+					"required": [
+						"PartyPInstrumentRelId", "PartyPInstrumentRelInfo"
+					]
+				},
+				"PInstrumentAcctRelRec": {
+					"id": "PInstrumentAcctRelRec",
+					"type": "array",
+					"properties": {
+						"PInstrumentAcctRelId": {
+							"id": "PInstrumentAcctRelId",
+							"type": "string",
+							"description": "Destination Internal Generated ID"
+						},
+						"PInstrumentAcctRelInfo": {
+							"id": "PInstrumentAcctRelInfo",
+							"type": "object",
+							"properties": {
+								"AcctId": {
+									"id": "AcctId",
+									"type": "string"
+								},
+								"PInstrumentId": {
+									"id": "PInstrumentId",
+									"type": "string"
+								},
+								"PInstrumentAcctRelType": {
+									"id": "PInstrumentAcctRelType",
+									"type": "string",
+									"description": "Need to confirm the type"
+								},
+								"Nickname": {
+									"id": "Nickname",
+									"type": "string",
+									"description": "Nickname of the Account for the relationship to the Card"
+								},
+								"RelEstablishedDt": {
+									"id": "RelEstablishedDt",
+									"type": "string",
+									"description": ""
+								}
+							},
+							"required": [
+								"PInstrumentId", "AcctId"
+							]
+						},
+						"PInstrumentAcctRelEnv": {
+							"id": "PInstrumentAcctRelEnv",
+							"type": "object",
+							"properties": {
+								"CreatedDt": {
+									"id": "CreatedDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"ClientCreateDt": {
+									"id": "ClientCreateDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"ClientBusinessDt": {
+									"id": "ClientBusinessDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								},
+								"LastUpdate": {
+									"id": "LastUpdateDt",
+									"type": "string",
+									"description": "Format: 2013-09-2013-09-21T15:03:21.123Z offset of UTC"
+								}
+							}
+						},
+						"PInstrumentAcctRelStatus": {
+							"id": "PInstrumentAcctRelStatus",
+							"type": "object",
+							"properties": {
+								"PInstrumentAcctRelStatusCode": {
+									"id": "PInstrumentAcctRelStatusCode",
+									"type": "string"
+								},
+								"StatusDesc": {
+									"id": "StatusDesc",
+									"type": "string"
+								},
+								"EffDt": {
+									"id": "EffDt",
+									"type": "string"
+								},
+								"StatusModBy": {
+									"id": "StatusModBy",
+									"type": "string"
+								}
+							}
+						}
+					},
+					"description": "Payment Instrument mapped to the acct",
+					"required": [
+						"PInstrumentAcctRelId", "PInstrumentAcctRelInfo"
+					]
+				}
+			},
+			"minItems": "1",
+			"description": "JSON Message Domain Payload",
+			"required": [
+				"RqMsgUID", "RqType", "RqSubType"
+			]
+		}
+	},
+	"required": [
+		"RqHdr", "RqEnv", "RqMsg"
+	]
+}
