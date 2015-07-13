@@ -127,7 +127,7 @@
 							}
 						}
 					},
-					"minItems": "0"
+					"minItems": 0
 				}
 			},
 			"required": [
@@ -358,8 +358,7 @@
 										"id": "AcctIdentValue",
 										"type": "string",
 										"description": "Masked Account Number such as last 4 digits: 3456"
-									},
-									"properties": ""
+									}
 								},
 								"FIData": {
 									"id": "FIData",
@@ -583,7 +582,7 @@
 							]
 						}
 					},
-					"minItems": "0",
+					"minItems": 0,
 					"description": "If Acct Add, Min Item=1, If Trn Add, Min Item=0",
 					"required": [
 						"AcctId", "ProductIdent", "AcctInfo", "AcctStatus"
@@ -785,7 +784,7 @@
 										},
 										"CurAmt": {
 											"id": "CurAmt",
-											"type": "Array",
+											"type": "array",
 											"properties": {
 												"CurCode.CurCodeType": {
 													"id": "CurCodeType",
@@ -812,26 +811,16 @@
 										},
 										"ExchangeRate": {
 											"id": "ExchangeRate",
-											"type": "Array",
+											"type": "array",
 											"properties": {
-												"BaseCurCode.CurCodeType": [
-													{
+												"BaseCurCode.CurCodeType": {
 														"id": "CurCodeType",
 														"type": "string"
-													}, {
-														"id": "CurCodeType",
-														"type": "string"
-													}
-												],
-												"ContraCurCode.CurCodeValue": [
-													{
+													},
+												"ContraCurCode.CurCodeValue":{
 														"id": "CurCodeValue",
 														"type": "string"
-													}, {
-														"id": "CurCodeValue",
-														"type": "string"
-													}
-												],
+													},
 												"ExchRate": {
 													"id": "ExchRate",
 													"type": "number"
@@ -1068,7 +1057,7 @@
 							}
 						}
 					},
-					"minItems": "0",
+					"minItems": 0,
 					"description": "If RqType for AcctTran Add, Item=1:M, If RqType for Party/Acct Add, Item=0:M",
 					"required": [
 						"AcctTrnId", "AcctTrnInfo"
@@ -1185,7 +1174,7 @@
 							]
 						}
 					},
-					"minItems": "0",
+					"minItems": 0,
 					"description": "",
 					"required": [
 						"PInstrumentId", "PInstrumentInfo", "PInstrumentStatus"
@@ -1382,7 +1371,7 @@
 					]
 				}
 			},
-			"minItems": "1",
+			"minItems": 1,
 			"description": "JSON Message Domain Payload",
 			"required": [
 				"RqMsgUID", "RqType", "RqSubType"
