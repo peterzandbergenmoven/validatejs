@@ -1,0 +1,73 @@
+{
+	"RqHdr": {
+		"RqUID": "12SB35"
+	},
+	"RqEnv": {
+		"CreatedDt": "2013-09-2013-09-21T15:03:21.123Z",
+		"ClientCreatedDt": "2013-09-2013-09-21T15:02:21.123Z"
+	},
+	"RqMsg": [
+		{
+			"RqMsgUID": 2001,
+			"RqType": "ADD",
+			"RqSubType": "BATCH",
+			"RqCategory": "FIN",
+			"AcctTrnRec": {
+				"AcctTrnId": 2001,
+				"AcctTrnInfo": {
+					"AcctId": "103C17GU54BH78IS2004",
+					"TrnSubType": "",
+					"OrigDt": "2013-09-21T15:03:21.123Z",
+					"EffDt": "2013-01-13Z",
+					"Memo": "SOBEYS 921 QPS",
+					"TrnType": "POS",
+					"TotalCurAmt": {
+						"CurCode.CurCodeValue": "CAD",
+						"AmtType": "DR",
+						"Amt": 130.12
+					},
+					"StmtRunningBal": {
+						"CurCode.CurCodeValue": "CAD",
+						"Amt": -1100.11
+					},
+					"AvailableBal": {
+						"CurCode.CurCodeValue": "CAD",
+						"Amt": 4899.89
+					},
+					"NetworkTrnData": {
+						"MCC": 5411
+					}
+				}
+			}
+		}, {
+			"RqMsgUID": 2002,
+			"RqType": "ADD",
+			"RqSubType": "BATCH",
+			"RqCategory": "FIN",
+			"AcctTrnRec": {
+				"AcctTrnId": 2002,
+				"AcctTrnInfo": {
+					"AcctId": "103C17GU54BH78IS2078",
+					"TrnSubType": "",
+					"OrigDt": "2013-09-21T15:04:21.123Z",
+					"EffDt": "2013-01-13Z",
+					"Memo": "Payment Received from RBC",
+					"TrnType": "Payment",
+					"TotalCurAmt": {
+						"CurCode.CurCodeValue": "CAD",
+						"AmtType": "CR",
+						"Amt": 1200.15
+					},
+					"StmtRunningBal": {
+						"CurCode.CurCodeValue": "CAD",
+						"Amt": 250.04
+					},
+					"AvailableBal": {
+						"CurCode.CurCodeValue": "CAD",
+						"Amt": 5250.04
+					}
+				}
+			}
+		}
+	]
+}
